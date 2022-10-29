@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Desconocido" productName="Sin nombre" productVersion="1" creationDateTime="2022-10-29T15:41:28"/>
-  <contentHeader name="Sin nombre" modificationDateTime="2022-10-29T16:29:16">
+  <contentHeader name="Sin nombre" modificationDateTime="2022-10-29T16:41:07">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -27,6 +27,9 @@
               <initialValue>
                 <simpleValue value="0"/>
               </initialValue>
+              <documentation>
+                <xhtml:p><![CDATA[Me indica si el motor está marchando en sentido horario]]></xhtml:p>
+              </documentation>
             </variable>
             <variable name="Retroceso">
               <type>
@@ -35,6 +38,9 @@
               <initialValue>
                 <simpleValue value="0"/>
               </initialValue>
+              <documentation>
+                <xhtml:p><![CDATA[Me indica si el motor está marchando en sentido antiorario]]></xhtml:p>
+              </documentation>
             </variable>
             <variable name="Joysick">
               <type>
@@ -43,6 +49,9 @@
               <initialValue>
                 <simpleValue value="0.25"/>
               </initialValue>
+              <documentation>
+                <xhtml:p><![CDATA[Representa el joystick, toma los valores que se leen.]]></xhtml:p>
+              </documentation>
             </variable>
             <variable name="ValAv">
               <type>
@@ -51,6 +60,9 @@
               <initialValue>
                 <simpleValue value="3.0"/>
               </initialValue>
+              <documentation>
+                <xhtml:p><![CDATA[Valor del joystick para que gire a sentido horario]]></xhtml:p>
+              </documentation>
             </variable>
             <variable name="ValRet">
               <type>
@@ -59,92 +71,91 @@
               <initialValue>
                 <simpleValue value="0.3"/>
               </initialValue>
-            </variable>
-            <variable name="ValRep">
-              <type>
-                <REAL/>
-              </type>
+              <documentation>
+                <xhtml:p><![CDATA[Valor del joystick para que gire a sentido antihorario]]></xhtml:p>
+              </documentation>
             </variable>
             <variable name="Reposo">
               <type>
                 <BOOL/>
               </type>
+              <documentation>
+                <xhtml:p><![CDATA[Me indica si el motor está en reposo]]></xhtml:p>
+              </documentation>
             </variable>
           </localVars>
         </interface>
         <body>
           <LD>
             <inVariable localId="1" height="30" width="70" negated="false">
-              <position x="10" y="90"/>
+              <position x="270" y="80"/>
               <connectionPointOut>
                 <relPosition x="70" y="10"/>
               </connectionPointOut>
               <expression>Joysick</expression>
             </inVariable>
             <outVariable localId="4" height="30" width="60" negated="false">
-              <position x="880" y="30"/>
+              <position x="810" y="10"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="17" formalParameter="OUT">
-                  <position x="880" y="40"/>
-                  <position x="380" y="40"/>
-                  <position x="380" y="50"/>
-                  <position x="310" y="50"/>
+                  <position x="810" y="20"/>
+                  <position x="590" y="20"/>
+                  <position x="590" y="60"/>
+                  <position x="520" y="60"/>
                 </connection>
               </connectionPointIn>
               <expression>Avance</expression>
             </outVariable>
             <outVariable localId="3" height="30" width="90" negated="false">
-              <position x="830" y="160"/>
+              <position x="780" y="260"/>
               <connectionPointIn>
-                <relPosition x="0" y="10"/>
+                <relPosition x="0" y="20"/>
                 <connection refLocalId="16" formalParameter="OUT">
-                  <position x="830" y="170"/>
-                  <position x="375" y="170"/>
-                  <position x="375" y="180"/>
-                  <position x="300" y="180"/>
+                  <position x="780" y="280"/>
+                  <position x="585" y="280"/>
+                  <position x="585" y="250"/>
+                  <position x="520" y="250"/>
                 </connection>
               </connectionPointIn>
               <expression>Retroceso</expression>
             </outVariable>
             <outVariable localId="2" height="30" width="60" negated="false">
-              <position x="880" y="80"/>
+              <position x="940" y="90"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="20" formalParameter="OUT">
-                  <position x="880" y="100"/>
-                  <position x="795" y="100"/>
-                  <position x="795" y="110"/>
-                  <position x="750" y="110"/>
+                  <position x="940" y="110"/>
+                  <position x="870" y="110"/>
                 </connection>
               </connectionPointIn>
               <expression>Reposo</expression>
             </outVariable>
             <inVariable localId="13" height="30" width="50" negated="false">
-              <position x="50" y="230"/>
+              <position x="270" y="200"/>
               <connectionPointOut>
                 <relPosition x="50" y="10"/>
               </connectionPointOut>
               <expression>ValAv</expression>
             </inVariable>
             <inVariable localId="15" height="30" width="60" negated="false">
-              <position x="0" y="280"/>
+              <position x="260" y="280"/>
               <connectionPointOut>
                 <relPosition x="60" y="20"/>
               </connectionPointOut>
               <expression>ValRet</expression>
             </inVariable>
             <block localId="16" typeName="LE" height="60" width="70">
-              <position x="230" y="150"/>
+              <position x="450" y="220"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="1">
-                      <position x="230" y="180"/>
-                      <position x="160" y="180"/>
-                      <position x="160" y="100"/>
-                      <position x="80" y="100"/>
+                      <position x="450" y="250"/>
+                      <position x="370" y="250"/>
+                      <position x="370" y="90"/>
+                      <position x="340" y="90"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -152,10 +163,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="15">
-                      <position x="230" y="200"/>
-                      <position x="165" y="200"/>
-                      <position x="165" y="300"/>
-                      <position x="60" y="300"/>
+                      <position x="450" y="270"/>
+                      <position x="400" y="270"/>
+                      <position x="400" y="300"/>
+                      <position x="320" y="300"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -170,16 +181,16 @@
               </outputVariables>
             </block>
             <block localId="17" typeName="GT" height="60" width="70">
-              <position x="240" y="20"/>
+              <position x="450" y="30"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="1">
-                      <position x="240" y="50"/>
-                      <position x="165" y="50"/>
-                      <position x="165" y="100"/>
-                      <position x="80" y="100"/>
+                      <position x="450" y="60"/>
+                      <position x="380" y="60"/>
+                      <position x="380" y="90"/>
+                      <position x="340" y="90"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -187,10 +198,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="13">
-                      <position x="240" y="70"/>
-                      <position x="220" y="70"/>
-                      <position x="220" y="240"/>
-                      <position x="100" y="240"/>
+                      <position x="450" y="80"/>
+                      <position x="410" y="80"/>
+                      <position x="410" y="210"/>
+                      <position x="320" y="210"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -205,16 +216,16 @@
               </outputVariables>
             </block>
             <block localId="20" typeName="AND" height="60" width="70">
-              <position x="680" y="80"/>
+              <position x="800" y="80"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="21" formalParameter="OUT">
-                      <position x="680" y="110"/>
-                      <position x="630" y="110"/>
-                      <position x="630" y="90"/>
-                      <position x="580" y="90"/>
+                      <position x="800" y="110"/>
+                      <position x="770" y="110"/>
+                      <position x="770" y="90"/>
+                      <position x="720" y="90"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -222,10 +233,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="22" formalParameter="OUT">
-                      <position x="680" y="130"/>
-                      <position x="615" y="130"/>
-                      <position x="615" y="150"/>
-                      <position x="550" y="150"/>
+                      <position x="800" y="130"/>
+                      <position x="770" y="130"/>
+                      <position x="770" y="160"/>
+                      <position x="720" y="160"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -240,16 +251,16 @@
               </outputVariables>
             </block>
             <block localId="21" typeName="NOT" height="40" width="60">
-              <position x="520" y="60"/>
+              <position x="660" y="60"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="17" formalParameter="OUT">
-                      <position x="520" y="90"/>
-                      <position x="415" y="90"/>
-                      <position x="415" y="50"/>
-                      <position x="310" y="50"/>
+                      <position x="660" y="90"/>
+                      <position x="625" y="90"/>
+                      <position x="625" y="60"/>
+                      <position x="520" y="60"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -264,16 +275,16 @@
               </outputVariables>
             </block>
             <block localId="22" typeName="NOT" height="40" width="60">
-              <position x="490" y="120"/>
+              <position x="660" y="130"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="16" formalParameter="OUT">
-                      <position x="490" y="150"/>
-                      <position x="415" y="150"/>
-                      <position x="415" y="180"/>
-                      <position x="300" y="180"/>
+                      <position x="660" y="160"/>
+                      <position x="625" y="160"/>
+                      <position x="625" y="250"/>
+                      <position x="520" y="250"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
