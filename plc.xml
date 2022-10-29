@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<project xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
-  <fileHeader companyName="Desconocido" productName="Sin nombre" productVersion="1" creationDateTime="2022-10-29T15:41:28"/>
-  <contentHeader name="Sin nombre" modificationDateTime="2022-10-29T16:41:07">
+<project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
+  <fileHeader companyName="Desconocido" productName="Embaladora" productVersion="1" creationDateTime="2022-10-29T15:41:28"/>
+  <contentHeader name="Laboratorio 2" modificationDateTime="2022-10-29T16:43:12">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
