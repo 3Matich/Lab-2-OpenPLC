@@ -201,19 +201,19 @@ __end:
 
 
 void PROGRAM0_init__(PROGRAM0 *data__, BOOL retain) {
-  __INIT_VAR(data__->JOYSICK,0.25,retain)
-  __INIT_VAR(data__->VALAV,3.0,retain)
-  __INIT_VAR(data__->VALRET,0.3,retain)
+  __INIT_VAR(data__->JOYSICK,2,retain)
+  __INIT_VAR(data__->VALAV,3,retain)
+  __INIT_VAR(data__->VALRET,1,retain)
   __INIT_VAR(data__->BOBINAA,0,retain)
   __INIT_VAR(data__->BOBINAB,0,retain)
   __INIT_VAR(data__->BOBINAC,0,retain)
   __INIT_VAR(data__->BOBINAD,0,retain)
-  __INIT_VAR(data__->RELOJ,__time_to_timespec(1, 0, 5, 0, 0, 0),retain)
+  __INIT_VAR(data__->RELOJ,__time_to_timespec(1, 200, 0, 0, 0, 0),retain)
   __INIT_VAR(data__->RELOJA,__time_to_timespec(1, 0, 0, 0, 0, 0),retain)
-  __INIT_VAR(data__->RELOJB,__time_to_timespec(1, 0, 5, 0, 0, 0),retain)
-  __INIT_VAR(data__->RELOJC,__time_to_timespec(1, 0, 2.5, 0, 0, 0),retain)
-  __INIT_VAR(data__->RELOJD,__time_to_timespec(1, 0, 7.5, 0, 0, 0),retain)
-  __INIT_VAR(data__->CLOCK,__time_to_timespec(1, 0, 15, 0, 0, 0),retain)
+  __INIT_VAR(data__->RELOJB,__time_to_timespec(1, 200, 0, 0, 0, 0),retain)
+  __INIT_VAR(data__->RELOJC,__time_to_timespec(1, 400, 0, 0, 0, 0),retain)
+  __INIT_VAR(data__->RELOJD,__time_to_timespec(1, 600, 0, 0, 0, 0),retain)
+  __INIT_VAR(data__->CLOCK,__time_to_timespec(1, 0, 4, 0, 0, 0),retain)
   TON_init__(&data__->TON0,retain);
   TON_init__(&data__->TON1,retain);
   TP_init__(&data__->TP0,retain);
@@ -240,12 +240,12 @@ void PROGRAM0_body__(PROGRAM0 *data__) {
   __SET_VAR(data__->TP4.,PT,,__GET_VAR(data__->CLOCK,));
   TP_body__(&data__->TP4);
   __SET_VAR(data__->,BOBINAA,,__GET_VAR(data__->TP4.Q,));
-  __SET_VAR(data__->,GT17_OUT,,GT__BOOL__REAL(
+  __SET_VAR(data__->,GT17_OUT,,GT__BOOL__INT(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (REAL)__GET_VAR(data__->JOYSICK,),
-    (REAL)__GET_VAR(data__->VALAV,)));
+    (INT)__GET_VAR(data__->JOYSICK,),
+    (INT)__GET_VAR(data__->VALAV,)));
   __SET_VAR(data__->,AND45_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
@@ -280,12 +280,12 @@ void PROGRAM0_body__(PROGRAM0 *data__) {
   __SET_VAR(data__->TP3.,PT,,__GET_VAR(data__->RELOJ,));
   TP_body__(&data__->TP3);
   __SET_VAR(data__->,BOBINAD,,__GET_VAR(data__->TP3.Q,));
-  __SET_VAR(data__->,LE16_OUT,,LE__BOOL__REAL(
+  __SET_VAR(data__->,LE16_OUT,,LE__BOOL__INT(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (REAL)__GET_VAR(data__->JOYSICK,),
-    (REAL)__GET_VAR(data__->VALRET,)));
+    (INT)__GET_VAR(data__->JOYSICK,),
+    (INT)__GET_VAR(data__->VALRET,)));
 
   goto __end;
 

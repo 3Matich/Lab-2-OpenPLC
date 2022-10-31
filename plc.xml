@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Desconocido" productName="Embaladora" productVersion="1" creationDateTime="2022-10-29T15:41:28"/>
-  <contentHeader name="Laboratorio 2" modificationDateTime="2022-10-31T00:30:54">
+  <contentHeader name="Laboratorio 2" modificationDateTime="2022-10-31T10:49:48">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -22,10 +22,10 @@
           <localVars>
             <variable name="Joysick" address="%IW0">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="0.25"/>
+                <simpleValue value="2"/>
               </initialValue>
               <documentation>
                 <xhtml:p><![CDATA[Representa el joystick, toma los valores que se leen.]]></xhtml:p>
@@ -35,10 +35,10 @@
           <localVars>
             <variable name="ValAv">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="3.0"/>
+                <simpleValue value="3"/>
               </initialValue>
               <documentation>
                 <xhtml:p><![CDATA[Valor del joystick para que gire a sentido horario]]></xhtml:p>
@@ -46,10 +46,10 @@
             </variable>
             <variable name="ValRet">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="0.3"/>
+                <simpleValue value="1"/>
               </initialValue>
               <documentation>
                 <xhtml:p><![CDATA[Valor del joystick para que gire a sentido antihorario]]></xhtml:p>
@@ -96,10 +96,10 @@
                 <TIME/>
               </type>
               <initialValue>
-                <simpleValue value="T#5s"/>
+                <simpleValue value="T#200ms"/>
               </initialValue>
               <documentation>
-                <xhtml:p><![CDATA[Pasos]]></xhtml:p>
+                <xhtml:p><![CDATA[Duración del paso]]></xhtml:p>
               </documentation>
             </variable>
             <variable name="RelojA">
@@ -107,10 +107,10 @@
                 <TIME/>
               </type>
               <initialValue>
-                <simpleValue value="T#0s"/>
+                <simpleValue value="T#0ms"/>
               </initialValue>
               <documentation>
-                <xhtml:p><![CDATA[Pasos]]></xhtml:p>
+                <xhtml:p><![CDATA[Paso para la bobina A]]></xhtml:p>
               </documentation>
             </variable>
             <variable name="RelojB">
@@ -118,10 +118,10 @@
                 <TIME/>
               </type>
               <initialValue>
-                <simpleValue value="T#5s"/>
+                <simpleValue value="T#200ms"/>
               </initialValue>
               <documentation>
-                <xhtml:p><![CDATA[Pasos]]></xhtml:p>
+                <xhtml:p><![CDATA[Paso para la bobina B]]></xhtml:p>
               </documentation>
             </variable>
             <variable name="RelojC">
@@ -129,10 +129,10 @@
                 <TIME/>
               </type>
               <initialValue>
-                <simpleValue value="T#2.5s"/>
+                <simpleValue value="T#400ms"/>
               </initialValue>
               <documentation>
-                <xhtml:p><![CDATA[Pasos]]></xhtml:p>
+                <xhtml:p><![CDATA[Paso para la bobina C]]></xhtml:p>
               </documentation>
             </variable>
             <variable name="RelojD">
@@ -140,10 +140,10 @@
                 <TIME/>
               </type>
               <initialValue>
-                <simpleValue value="T#7.5s"/>
+                <simpleValue value="T#600ms"/>
               </initialValue>
               <documentation>
-                <xhtml:p><![CDATA[Pasos]]></xhtml:p>
+                <xhtml:p><![CDATA[Paso para la bobina D]]></xhtml:p>
               </documentation>
             </variable>
             <variable name="Clock">
@@ -151,7 +151,7 @@
                 <TIME/>
               </type>
               <initialValue>
-                <simpleValue value="T#15s"/>
+                <simpleValue value="T#4s"/>
               </initialValue>
               <documentation>
                 <xhtml:p><![CDATA[Pasos]]></xhtml:p>

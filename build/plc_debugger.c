@@ -26,7 +26,7 @@ void __publish_debug (void){}
 #include <stdio.h>
 
 #ifndef TARGET_ONLINE_DEBUG_DISABLE
-#define BUFFER_SIZE 447
+#define BUFFER_SIZE 441
 
 /* Atomically accessed variable for buffer state */
 #define BUFFER_FREE 0
@@ -57,9 +57,9 @@ typedef const struct {
 } dbgvardsc_t;
 
 static dbgvardsc_t dbgvardsc[] = {
-{&(RES0__INSTANCE0.JOYSICK), REAL_ENUM},
-{&(RES0__INSTANCE0.VALAV), REAL_ENUM},
-{&(RES0__INSTANCE0.VALRET), REAL_ENUM},
+{&(RES0__INSTANCE0.JOYSICK), INT_ENUM},
+{&(RES0__INSTANCE0.VALAV), INT_ENUM},
+{&(RES0__INSTANCE0.VALRET), INT_ENUM},
 {&(RES0__INSTANCE0.BOBINAA), BOOL_ENUM},
 {&(RES0__INSTANCE0.BOBINAB), BOOL_ENUM},
 {&(RES0__INSTANCE0.BOBINAC), BOOL_ENUM},

@@ -94,11 +94,11 @@ END_FUNCTION_BLOCK
 
 PROGRAM program0
   VAR
-    Joysick : REAL := 0.25;
+    Joysick : INT := 2;
   END_VAR
   VAR
-    ValAv : REAL := 3.0;
-    ValRet : REAL := 0.3;
+    ValAv : INT := 3;
+    ValRet : INT := 1;
   END_VAR
   VAR
     BobinaA : BOOL := 0;
@@ -107,12 +107,12 @@ PROGRAM program0
     BobinaD : BOOL := 0;
   END_VAR
   VAR
-    Reloj : TIME := T#5s;
-    RelojA : TIME := T#0s;
-    RelojB : TIME := T#5s;
-    RelojC : TIME := T#2.5s;
-    RelojD : TIME := T#7.5s;
-    Clock : TIME := T#15s;
+    Reloj : TIME := T#200ms;
+    RelojA : TIME := T#0ms;
+    RelojB : TIME := T#200ms;
+    RelojC : TIME := T#400ms;
+    RelojD : TIME := T#600ms;
+    Clock : TIME := T#4s;
     TON0 : TON;
     TON1 : TON;
     TP0 : TP;
