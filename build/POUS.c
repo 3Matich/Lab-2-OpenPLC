@@ -201,47 +201,91 @@ __end:
 
 
 void PROGRAM0_init__(PROGRAM0 *data__, BOOL retain) {
-  __INIT_VAR(data__->AVANCE,0,retain)
-  __INIT_VAR(data__->RETROCESO,0,retain)
   __INIT_VAR(data__->JOYSICK,0.25,retain)
   __INIT_VAR(data__->VALAV,3.0,retain)
   __INIT_VAR(data__->VALRET,0.3,retain)
-  __INIT_VAR(data__->VALREP,0,retain)
-  __INIT_VAR(data__->REPOSO,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->BOBINAA,0,retain)
+  __INIT_VAR(data__->BOBINAB,0,retain)
+  __INIT_VAR(data__->BOBINAC,0,retain)
+  __INIT_VAR(data__->BOBINAD,0,retain)
+  __INIT_VAR(data__->RELOJ,__time_to_timespec(1, 0, 5, 0, 0, 0),retain)
+  __INIT_VAR(data__->RELOJA,__time_to_timespec(1, 0, 0, 0, 0, 0),retain)
+  __INIT_VAR(data__->RELOJB,__time_to_timespec(1, 0, 5, 0, 0, 0),retain)
+  __INIT_VAR(data__->RELOJC,__time_to_timespec(1, 0, 2.5, 0, 0, 0),retain)
+  __INIT_VAR(data__->RELOJD,__time_to_timespec(1, 0, 7.5, 0, 0, 0),retain)
+  __INIT_VAR(data__->CLOCK,__time_to_timespec(1, 0, 15, 0, 0, 0),retain)
+  TON_init__(&data__->TON0,retain);
+  TON_init__(&data__->TON1,retain);
+  TP_init__(&data__->TP0,retain);
+  TP_init__(&data__->TP1,retain);
+  TON_init__(&data__->TON2,retain);
+  TP_init__(&data__->TP2,retain);
+  TON_init__(&data__->TON3,retain);
+  TP_init__(&data__->TP3,retain);
+  TON_init__(&data__->TON4,retain);
+  TP_init__(&data__->TP4,retain);
   __INIT_VAR(data__->GT17_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->NOT21_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->AND45_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->LE16_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->NOT22_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->AND20_OUT,__BOOL_LITERAL(FALSE),retain)
 }
 
 // Code part
 void PROGRAM0_body__(PROGRAM0 *data__) {
   // Initialise TEMP variables
 
+  __SET_VAR(data__->TON4.,IN,,!(__GET_VAR(data__->BOBINAA,)));
+  __SET_VAR(data__->TON4.,PT,,__GET_VAR(data__->CLOCK,));
+  TON_body__(&data__->TON4);
+  __SET_VAR(data__->TP4.,IN,,__GET_VAR(data__->TON4.Q,));
+  __SET_VAR(data__->TP4.,PT,,__GET_VAR(data__->CLOCK,));
+  TP_body__(&data__->TP4);
+  __SET_VAR(data__->,BOBINAA,,__GET_VAR(data__->TP4.Q,));
   __SET_VAR(data__->,GT17_OUT,,GT__BOOL__REAL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
     (REAL)__GET_VAR(data__->JOYSICK,),
     (REAL)__GET_VAR(data__->VALAV,)));
-  __SET_VAR(data__->,AVANCE,,__GET_VAR(data__->GT17_OUT,));
-  __SET_VAR(data__->,NOT21_OUT,,!(__GET_VAR(data__->GT17_OUT,)));
+  __SET_VAR(data__->,AND45_OUT,,AND__BOOL__BOOL(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (UINT)2,
+    (BOOL)__GET_VAR(data__->TP4.Q,),
+    (BOOL)__GET_VAR(data__->GT17_OUT,)));
+  __SET_VAR(data__->TON0.,IN,,__GET_VAR(data__->AND45_OUT,));
+  __SET_VAR(data__->TON0.,PT,,__GET_VAR(data__->RELOJA,));
+  TON_body__(&data__->TON0);
+  __SET_VAR(data__->TP0.,IN,,__GET_VAR(data__->TON0.Q,));
+  __SET_VAR(data__->TP0.,PT,,__GET_VAR(data__->RELOJ,));
+  TP_body__(&data__->TP0);
+  __SET_VAR(data__->,BOBINAA,,__GET_VAR(data__->TP0.Q,));
+  __SET_VAR(data__->TON1.,IN,,__GET_VAR(data__->AND45_OUT,));
+  __SET_VAR(data__->TON1.,PT,,__GET_VAR(data__->RELOJB,));
+  TON_body__(&data__->TON1);
+  __SET_VAR(data__->TP1.,IN,,__GET_VAR(data__->TON1.Q,));
+  __SET_VAR(data__->TP1.,PT,,__GET_VAR(data__->RELOJ,));
+  TP_body__(&data__->TP1);
+  __SET_VAR(data__->,BOBINAB,,__GET_VAR(data__->TP1.Q,));
+  __SET_VAR(data__->TON2.,IN,,__GET_VAR(data__->AND45_OUT,));
+  __SET_VAR(data__->TON2.,PT,,__GET_VAR(data__->RELOJC,));
+  TON_body__(&data__->TON2);
+  __SET_VAR(data__->TP2.,IN,,__GET_VAR(data__->TON2.Q,));
+  __SET_VAR(data__->TP2.,PT,,__GET_VAR(data__->RELOJ,));
+  TP_body__(&data__->TP2);
+  __SET_VAR(data__->,BOBINAC,,__GET_VAR(data__->TP2.Q,));
+  __SET_VAR(data__->TON3.,IN,,__GET_VAR(data__->AND45_OUT,));
+  __SET_VAR(data__->TON3.,PT,,__GET_VAR(data__->RELOJD,));
+  TON_body__(&data__->TON3);
+  __SET_VAR(data__->TP3.,IN,,__GET_VAR(data__->TON3.Q,));
+  __SET_VAR(data__->TP3.,PT,,__GET_VAR(data__->RELOJ,));
+  TP_body__(&data__->TP3);
+  __SET_VAR(data__->,BOBINAD,,__GET_VAR(data__->TP3.Q,));
   __SET_VAR(data__->,LE16_OUT,,LE__BOOL__REAL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
     (REAL)__GET_VAR(data__->JOYSICK,),
     (REAL)__GET_VAR(data__->VALRET,)));
-  __SET_VAR(data__->,NOT22_OUT,,!(__GET_VAR(data__->LE16_OUT,)));
-  __SET_VAR(data__->,AND20_OUT,,AND__BOOL__BOOL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (UINT)2,
-    (BOOL)__GET_VAR(data__->NOT21_OUT,),
-    (BOOL)__GET_VAR(data__->NOT22_OUT,)));
-  __SET_VAR(data__->,REPOSO,,__GET_VAR(data__->AND20_OUT,));
-  __SET_VAR(data__->,RETROCESO,,__GET_VAR(data__->LE16_OUT,));
 
   goto __end;
 

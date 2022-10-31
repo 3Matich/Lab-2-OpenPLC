@@ -1,27 +1,57 @@
 PROGRAM program0
   VAR
-    Avance : BOOL := 0;
-    Retroceso : BOOL := 0;
-    Joysick : REAL := 0.25;
+    Joysick AT %IW0 : REAL := 0.25;
+  END_VAR
+  VAR
     ValAv : REAL := 3.0;
     ValRet : REAL := 0.3;
-    ValRep : REAL;
-    Reposo : BOOL;
+  END_VAR
+  VAR
+    BobinaA AT %QX0.3 : BOOL := 0;
+    BobinaB AT %QX0.1 : BOOL := 0;
+    BobinaC AT %QX0.0 : BOOL := 0;
+    BobinaD AT %QX0.2 : BOOL := 0;
+  END_VAR
+  VAR
+    Reloj : TIME := T#5s;
+    RelojA : TIME := T#0s;
+    RelojB : TIME := T#5s;
+    RelojC : TIME := T#2.5s;
+    RelojD : TIME := T#7.5s;
+    Clock : TIME := T#15s;
+    TON0 : TON;
+    TON1 : TON;
+    TP0 : TP;
+    TP1 : TP;
+    TON2 : TON;
+    TP2 : TP;
+    TON3 : TON;
+    TP3 : TP;
+    TON4 : TON;
+    TP4 : TP;
     GT17_OUT : BOOL;
-    NOT21_OUT : BOOL;
+    AND45_OUT : BOOL;
     LE16_OUT : BOOL;
-    NOT22_OUT : BOOL;
-    AND20_OUT : BOOL;
   END_VAR
 
+  TON4(IN := NOT(BobinaA), PT := Clock);
+  TP4(IN := TON4.Q, PT := Clock);
+  BobinaA := TP4.Q;
   GT17_OUT := GT(Joysick, ValAv);
-  Avance := GT17_OUT;
-  NOT21_OUT := NOT(GT17_OUT);
+  AND45_OUT := AND(TP4.Q, GT17_OUT);
+  TON0(IN := AND45_OUT, PT := RelojA);
+  TP0(IN := TON0.Q, PT := Reloj);
+  BobinaA := TP0.Q;
+  TON1(IN := AND45_OUT, PT := RelojB);
+  TP1(IN := TON1.Q, PT := Reloj);
+  BobinaB := TP1.Q;
+  TON2(IN := AND45_OUT, PT := RelojC);
+  TP2(IN := TON2.Q, PT := Reloj);
+  BobinaC := TP2.Q;
+  TON3(IN := AND45_OUT, PT := RelojD);
+  TP3(IN := TON3.Q, PT := Reloj);
+  BobinaD := TP3.Q;
   LE16_OUT := LE(Joysick, ValRet);
-  NOT22_OUT := NOT(LE16_OUT);
-  AND20_OUT := AND(NOT21_OUT, NOT22_OUT);
-  Reposo := AND20_OUT;
-  Retroceso := LE16_OUT;
 END_PROGRAM
 
 
